@@ -1,17 +1,21 @@
 ---
-- name: Setup MySQL db server
+- name: Setup MySQL/MariaDB server
   hosts: dbgroup
   become: yes
+  vars:
+    dbname: mysql         # Replace with actual DB name if needed
+    dbuser: admin         # Replace with actual DB user if needed
+    dbpass: admin123
   tasks:
-    - name: Install MySQL server
+    - name: Install MariaDB server
       apt:
         name: mariadb-server
         state: present
-    - name: Install Python MySQL
+    - name: Install Python3 PyMySQL package
       apt:
         name: python3-pymysql
         state: present
-    - name: Start & Enable mariadb service
+    - name: Start & Enable MariaDB service
       service:
         name: mariadb
         state: started
