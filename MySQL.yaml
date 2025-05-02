@@ -22,7 +22,7 @@
         login_unix_socket: /var/run/mysqld/mysqld.sock
         name: "{{dbname}}"
         state: present
-# Create database user with name 'devops' with all database privileges
+# Create database user with name 'admin' with all database privileges
     - name: Create database user
       mysql_user:
        login_unix_socket: /var/run/mysqld/mysqld.sock
